@@ -8,7 +8,7 @@ class RegisterModel extends CI_model
        'Name' => $this->input->post('nam'),
        'Email' =>$this->input->post('eml'),
        'RollNo'=>$this->input->post('roll'),
-       'password'=>$this->input->post('pass'),
+       'password'=>md5($this->input->post('pass')),
        'Gender'=>$this->input->post('gndr'),
        'DOB'=>$this->input->post('dob'),
        );
