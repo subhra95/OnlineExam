@@ -1,22 +1,23 @@
 <?php 
 class RegisterModel extends CI_model
 {
-	function registration()
+	function registration($array)
 	{
-		$insertArray = array(
+		//$insertArray = array(
        
-       'Name' => $this->input->post('nam'),
-       'Email' =>$this->input->post('eml'),
-       'RollNo'=>$this->input->post('roll'),
-       'password'=>md5($this->input->post('pass')),
-       'Gender'=>$this->input->post('gndr'),
-       'DOB'=>$this->input->post('dob'),
-       );
+      // 'Name' => $this->input->post('nam'),
+      // 'Email' =>$this->input->post('eml'),
+       //'RollNo'=>$this->input->post('roll'),
+       //'password'=>$this->input->post('pass'),
+      // 'Gender'=>$this->input->post('gndr'),
+      // 'DOB'=>$this->input->post('dob'),
+       //'image'=>$this->input->post('uploads'),
+      // );
        
 
        // $this->load->database();
 
-      if( $this->db->insert('stdregister',$insertArray))
+      if( $this->db->insert('stdregister',$array))
        {
        	return true;
        }
@@ -36,16 +37,18 @@ class RegisterModel extends CI_model
 
               $this->db->where(['Email'=> $email ,'password'=> $password]);
             //$this->db->where($post);
-            $udata = $this->db->get('stdregister');
+            $data = $this->db->get('stdregister');
 
-            if($udata->num_rows()!=0)
+            if($data->num_rows()!=0)
             {
-              return true;
-             // $userdata=$data->row();
+              
+              $userdata=$data->row();
               //print_r($userdata);
               //$this->load->library('session');
-             // $this->session->set_userdata('uid',$userdata->std_id);
-             // return true;
+              $this->session->set_userdata('uid',$userdata->std_id);
+              
+            
+              return true;
 
             }
             else
@@ -59,18 +62,8 @@ class RegisterModel extends CI_model
        {
         $this->db->where('std_id',$id);
         $data=$this->db->get('stdregister');
-        if($data->num_rows()==1)
-        {
-          $userdata=$data->row();
-          return $userdata;
-        }
-        else
-        {
-          echo "wrong userid";
-        }
-
-
-
+        
+        return $data->row();
        }
 }
 ?>

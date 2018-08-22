@@ -9,7 +9,7 @@
 
 .bgimage
 {
-	background-image: url("<?php echo base_url('assets/image/onlineExam.jpg');?>");
+	background-image: url("<?php echo base_url('assets/image/slider1.jpg');?>");
 	background-size:100% 110%;
 	height:100vh;
 	width:100%;
@@ -80,50 +80,64 @@
 				</div>
 			</div>
 	   <div class="Mainbody">
+	   	<div class="error">
 		<?php 
 		if(isset($message))
 		{
 			echo $message;
 		}
+
+		if(isset($upload_error))
+		{
+			echo $upload_error;
+		}
 		?>
-		<form method="post" action="<?php echo base_url('registerProcess');?>">
+	</div>
+		<form method="post" action="<?php echo base_url('registerProcess');?>" enctype="multipart/form-data">
 			<h3><i><u>Registration</u></i></h3>
 			<center>
 			<table border="2px solid white" height="250px" width="150px">
 				<tr>
 				<th>Enter Name:</th>
-				<td><input type="text" name="nam" placeholder="enter name.."></td>
+				<td><input type="text" name="Name" placeholder="enter name.."></td>
 				<?php echo form_error('nam');?>	
 				</tr>
 				<tr>
 					<th>Email-id</th>
-			    <td><input type="text" name="eml" placeholder="enter email.."></td>
+			    <td><input type="text" name="Email" placeholder="enter email.."></td>
 			    <?php echo form_error('eml') ;?>
 				</tr>
 
 				<tr>
 					<th>Rollno</th>
-			    <td><input type="number" name="roll" placeholder="enter rollNo.."></td>
+			    <td><input type="number" name="RollNo" placeholder="enter rollNo.."></td>
 			    <?php echo form_error('roll') ;?>
 				</tr>
 				<tr>
 					<th>Password</th>
-				<td><input type="password" name="pass" placeholder="enter password.."></td>	
+				<td><input type="password" name="password" placeholder="enter password.."></td>	
 				<?php echo form_error('pass'); ?>
 			</tr>
 
 			<tr>
 				<th>Gender</th>
-			<td><input type="radio" name="gndr" value="Male">Male
-               <input type="radio" name="gndr" value="Female">Female
+			<td><input type="radio" name="Gender" value="Male">Male
+               <input type="radio" name="Gender" value="Female">Female
 			</td>
 			<?php echo form_error('gndr'); ?>	
 
 			</tr>
 			<tr>
 			<th>Enter DOB</th>	
-			<td><input type="date" name="dob" placeholder="enter date-of-birth.."></td>	
+			<td><input type="date" name="DOB" placeholder="enter date-of-birth.."></td>	
              <?php echo form_error('dob') ;?>
+			</tr>
+			<tr>
+
+				<tr>
+			<th>upload image</th>	
+			<td><input type="file" name="imagefile"></td>	
+       
 			</tr>
 			<tr>
 				

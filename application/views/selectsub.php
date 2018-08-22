@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
-	<style type="text/css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<style type="text/css">
+{
 *{
 	margin:0px;
 	padding:0px;
@@ -58,21 +62,11 @@
 	margin-top: 185px;
 	text-align:center;
 }
-.MainBody h3:hover
-{
-	font-size: 20px;
-	font-weight: bold;
-	color:green;
-}
-
 </style>
 </head>
 <body>
-<!--<h3>Welcome</h3><?php echo $user_info->Name ; ?><br>
-<h3>Image</h3><center><div><img src="<?php echo $user_info->image ;?>" style="height:150px; width:150px ;"></div></center>-->
-<div class="bgimage">
-
-	<div class="header">
+	<div class="bgimage">
+		<div class="header">
 				<div class="leftMenu">
 					<h3><i>Online Exam</i></h3>
 				</div>
@@ -86,14 +80,29 @@
 					</ul>
 				</div>
 			</div>
+			<div class="Mainbody>
 
-    <div class="Mainbody">
-	   	
+	<div class="form-group">
 
-			<a class="btn btn-danger"  href="<?php echo base_url('ChooseSubject');?>"><h3><i>choose subject</i></h3></a>
-			
-	
+		<select name="subject" id="subject" class="form-controll input-lg">
+			<option value="">-select subject-</option>
+			<?php 
+			foreach($subject_data as $row)
+			{
+				echo '<option value="'.$row->sid.'">'.$row->sub_name.'</option>';
+			}
+			?>
+		</select>
 	</div>
+	<br/>
+	<div class="form-group">
+		<select id="sub_type" name="sub_type" class="form-controll input-lg">
+			<option value="">-select type-</option>
+		</select>
 	</div>
+
+
+</div>
+</div>
 </body>
 </html>

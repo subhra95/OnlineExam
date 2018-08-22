@@ -59,4 +59,6 @@ $route['registerProcess']='HomeControll/regist';
 $route['home']='HomeControll/homepage';
 $route['login']='HomeControll/userloginview';
 $route['loginProcess']='HomeControll/userLogin';
-$route['dashboard']='HomeController/Dashboard';
+$route['dashboard']='HomeControll/Dashboard';
+$route['getSubType']='ChooseSubject/subjectType';
+$route['getQues']='ChooseSubject/questions';

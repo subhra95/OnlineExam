@@ -9,7 +9,7 @@
 
 .bgimage
 {
-	background-image: url("<?php echo base_url('assets/image/onlineExam.jpg');?>");
+	background-image: url("<?php echo base_url('assets/image/slider1.jpg');?>");
 	background-size:100% 110%;
 	height:100vh;
 	width:100%;
